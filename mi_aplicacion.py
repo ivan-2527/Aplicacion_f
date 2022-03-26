@@ -99,7 +99,7 @@ st.code('print(El resultado de convertir 45°C a escala Kelvin es:)')
 
 st.write('Con respecto al ejemplo anterior , se colocará la imagen que representa el codigo y el resultado obtenido')
 
-st.image('./ck.png')
+st.image('./ck.PNG')
 
 st.write('Se realizará el cálculo por medio de la definición de una función es decir, por medio del comando def')
 st.markdown('_DE ESCALA CELSIUS A FAHRENHEIT_')
