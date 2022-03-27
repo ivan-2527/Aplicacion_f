@@ -126,7 +126,7 @@ st.write('Con respecto a las lineas de codigo anterior, se colocará la imagen q
 
 st.image('./ck1.PNG')
 
-st.subheader('Si quieres comprobar tus datos obtenidos de la forma análitica y por medio de un codigo numérico utiliza la cálculadora de abajo, ¡ANIMO!')
+st.subheader('Si quieres comprobar tus datos obtenidos de la forma análitica y por medio de un codigo numérico utiliza la cálculadora de abajo, ¡ÁNIMO!')
 
 T_c=st.number_input('Indica la tempereatura que desea convertir a partir de una lectura en escala Celsius')
 T_f=1.8*T_c+32
