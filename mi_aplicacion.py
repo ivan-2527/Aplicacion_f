@@ -5,8 +5,8 @@ import numpy as np
 st.image('./mc1.png')
 
 # Texto:
-st.title('Juguemos con las conversiones para Termofluidos')
-st.header('En esta pagina se contendrá algunos factores de conversión basicos relacionados a las áreas de Mecánica de Fluidos, Termodinámica, y cómo estos pueden ser realizados por medio de comandos de linea de python')
+st.title('Juguemos con las escalas de Temperatura')
+st.header('En esta pagina se contendrá información básica acerca de conversiones de escalas de temperatura conmunmente utilizadas, y cómo se pueden realizar los calculos de las mismas por medio de comandos codigo, utilizando python')
 
 st.subheader('Escala de temperatura')
 
@@ -44,7 +44,7 @@ st.latex(r''' T_f=\frac{9}{5}(T_k-273.15)+32''')
 
 st.subheader('Escala Kelvin')
 
-st.write('Para este tipo de escala se utiliza como parametro a el valor 273.15K con respecto al agua destilada, se relaciona al proceso de fusión, y para el caso 373.15K se refiere al proceso de ebullición, es la escala que tiene como tal un 0 absoluto.')
+st.write('Para este tipo de escala se utiliza como parametro a el valor 273.15K con respecto al agua destilada, se relaciona al proceso de fusión, y para el caso 373.15K se refiere al proceso de ebullición. Es la escala que tiene como tal un 0 absoluto.')
 
 st.write('A continuación se muestran las ecuaciones para realizar el proceso de conversión a escala Kelvin cuando concemos la lectura de la temperatura en escala Celsius y Fahrenheit respectivamente son las siguientes:')
 
@@ -55,7 +55,6 @@ st.latex(r'''  T_k=T_c+273.15''')
 st.markdown('_CUANDO SE CONOCE LA LECTURA DE LA TEMPERATURA EN ESCALA FAHRENHEIT_') 
 
 st.latex(r''' T_k=\frac{5}{9}(T_f-32)+273.15''')
-#}
 
 st.markdown('A continuación se muestra ejemplos de forma teórica de cómo realizar la conversión entre escalas de temperatura.')
 
@@ -85,7 +84,7 @@ st.write('Ahora que ya se conoce cómo es realizar la conversión entre escalas 
 
 st.write('Para ello se utilizará la función lambda, y por medio de una función definida. Primero empezaremos a realizar el ejercicio por medio de la función lamba el cuál tendra la siguiente estructura')
 
-st.markdown('_DE ESCALA CELSIUS A FAHRENHEIT_')
+st.markdown('_DE ESCALA CELSIUS A FAHRENHEIT POR MEDIO DE LA FUNCIÓN LAMBDA_')
 st.code('t_f=(lambda t_c:t_c*1.8+32)(45)')
 st.code('print(El resultado de convertir 45°C a escala Fahrenheit es:)')
 
@@ -93,20 +92,67 @@ st.write('Con respecto a las lineas de codigo anterior, se colocará la imagen q
 
 st.image('./cf.png')
 
-st.markdown('_DE ESCALA CELSIUS A KELVIN_')
+st.markdown('_DE ESCALA CELSIUS A KELVIN POR MEDIO DE LA FUNCIÓN LAMBDA_')
 st.code('t_k=(lambda t_c:t_c+273.15)(45)')
 st.code('print(El resultado de convertir 45°C a escala Kelvin es:)')
 
 st.write('Con respecto al ejemplo anterior , se colocará la imagen que representa el codigo y el resultado obtenido')
 
-st.image('./ck.PNG')
+st.image('./ck.png')
 
-st.write('Se realizará el cálculo por medio de la definición de una función es decir, por medio del comando def')
-st.markdown('_DE ESCALA CELSIUS A FAHRENHEIT_')
-st.code('t_f=(lambda t_c:t_c*1.8+32)(45)')
-st.code('print(el resultado de convertir 45°C a escala Fahrenheit es:)')
+st.write('Se realizará el cálculo por medio de la definición de una función, es decir por medio del comando def para comprobar los resultados anteriores')
 
-st.latex(r''' T_f=\frac{9}{5}T_c+32 ''')
-T_c=st.number_input('Indica la tempereatura que desea convertir')
+st.markdown('_DE ESCALA CELSIUS A FAHRENHEIT POR MEDIO DE LA DEFINICIÓN DE UNA FUNCIÓN_')
+
+st.code('def Celsius_a_Fahrenheit(t_c):')
+st.code('t_f_1=t_c*1.8+32)')
+st.code('return t_f_1')
+
+st.code('Se ejecuta la función para que se guarde los cambios y se escribe el nombre de la función y dentro del parentesis el valor de la temperatura a calcular)')
+
+st.write('Con respecto a las lineas de codigo anterior, se colocará la imagen que representa el codigo y el resultado obtenido')
+
+st.image('./cf1.PNG')
+
+st.markdown('_DE ESCALA CELSIUS A KELVIN POR MEDIO DE LA DEFINICIÓN DE UNA FUNCIÓN_')
+
+st.code('def Celsius_a_Kelvin(t_c):')
+st.code('t_k_1=t_c+273.15')
+st.code('return t_k_1')
+
+st.code('Se ejecuta la función para que se guarde los cambios y se escribe el nombre de la función y dentro del parentesis el valor de la temperatura a calcular)')
+
+st.write('Con respecto a las lineas de codigo anterior, se colocará la imagen que representa el codigo y el resultado obtenido')
+
+st.image('./ck1.PNG')
+
+st.subheader('Si quieres comprobar tus datos obtenidos de la forma análitica y por medio de un codigo numérico utiliza la cálculadora de abajo, ¡ANIMO!')
+
+T_c=st.number_input('Indica la tempereatura que desea convertir a partir de una lectura en escala Celsius')
 T_f=1.8*T_c+32
-st.write(T_f)
+T_k=T_c+273.15
+st.write('Temperatura en escala Fahrenheit',T_f,'°F')
+st.write('Temperatura en escala Kelvin',T_k,'K')
+
+T_f_1=st.number_input('Indica la tempereatura que desea convertir a partir de una lectura en escala Fahrenheit')
+T_c_1=(T_f_1-32)/1.8
+T_k_1=(T_f_1-32)/1.8+273.15
+st.write('Temperatura en escala Celsius',T_c_1,'°C')
+st.write('Temperatura en escala Kelvin',T_k_1,'K')
+
+T_k_2=st.number_input('Indica la tempereatura que desea convertir a partir de una lectura en escala Kelvin')
+T_c_2=T_k_2-273.15
+T_f_2=1.8*(T_k_2-273.15)+32
+st.write('Temperatura en escala Celsius',T_c_2,'°C')
+st.write('Temperatura en escala Fahrenheit',T_f_2,'°F')
+
+
+st.subheader('Para que sigas practicando te dejamos los siguientes tres ejercicios, ¡ÉXITO EN TU PROGRESO!')
+
+st.markdown('_EJEMPLO 1.- CONVERTIR 154 °C A ESCALA CELSIUS Y FAHRENHEIT_')
+
+st.markdown('_EJEMPLO 2.- SE DESEA CONOCER CUÁL ES LA LECTURA DE TEMPERATURA EN KELVIN Y CELSIUS DE UN PASTEL QUE ESTA EN EL HORNO CON UNA TEMPERATURA DE 535 °F_')
+
+st.markdown('_EJEMPLO 3.- EL TRATAMIENTO DE SOLUCIÓN DE UNA CIERTA ALEACIÓN DE ALUMINIO SE REALIZA CON UNA TEMPERATURA PROMEDIO 745.15 K, EL OPERADOR NECESITA SABER CUÁL ES DICHA ESCALA EN CELSIUS Y FAHRENHEIT, YA QUE SUS INDICADORES PRESENTAN LAS MENCIONADAS. CALCULAR LAS CONVERSIONES SOLICITADAS_')
+
+st.image('./fn.PNG')
